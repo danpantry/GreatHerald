@@ -1,9 +1,8 @@
-﻿var Swap = require('./swap.js');
+﻿import { numberToNumberEmoji, gameModeIDToName, spellIDToSpellIcon } from './swap.js';
 var Input = require('./input.js');
 
 exports.API = function () {
     var api = this;
-    var swap = new Swap.Swap();
     var input = new Input.Input();
 
     api.RITO_KEY = process.env.RITO_KEY;
@@ -110,14 +109,14 @@ exports.API = function () {
                 chest = ":white_check_mark:";
             else chest = ":negative_squared_cross_mark:";
 
-            return callback(`\n**Level**: ${swap.numberToNumberEmoji(mastery.championLevel)}` +
+            return callback(`\n**Level**: ${numberToNumberEmoji(mastery.championLevel)}` +
                 `\n**Points**: ${mastery.championPoints}` +
                 `\n**Chest**: ${chest}` +
                 `\n\n ${comment}`);
         });
     };
     api.lastGameSummary = function (matchData, server, callback) {
-        var gameSummary = `${matchData.gameMode}${swap.gameModeIDToName(matchData.queueId)} [${input.convertMinutesToHoursAndMinutes(matchData.gameDuration)}]`;
+        var gameSummary = `${matchData.gameMode}${gameModeIDToName(matchData.queueId)} [${input.convertMinutesToHoursAndMinutes(matchData.gameDuration)}]`;
         var blueTeam = `\`\`.       |    KDA   |  gold |    dmg | lv |\`\`\n\`\`------------------------------------------\`\`\n`;
         var redTeam = `\`\`.       |    KDA   |  gold |    dmg | lv |\`\`\n\`\`------------------------------------------\`\`\n`;
         api.extractChampionData(server, championDataAPI => {
@@ -131,7 +130,7 @@ exports.API = function () {
                 var level = `${player.stats.champLevel}`;
                 var gold = `${player.stats.goldEarned}`;
                 var damage = `${player.stats.totalDamageDealtToChampions}`;
-                var summonerSpells = `${swap.spellIDToSpellIcon(player.spell1Id)}${swap.spellIDToSpellIcon(player.spell2Id)}`;
+                var summonerSpells = `${spellIDToSpellIcon(player.spell1Id)}${spellIDToSpellIcon(player.spell2Id)}`;
 
                 var playerNick = api.returnsNickIfRankedGame(matchData,i);
 
