@@ -22,11 +22,12 @@ exports.Answer = function (data) {
         console.log('Bronzifing!');
 
         let allMembers = data.message.guild.members.map(member => member.user);
-        for (let i in allMembers) {
+        setTimeout(() => {
+            for (let i in allMembers) {
             data.message.guild.member(allMembers[i]).addRole('429740165406261268')
                 .then()
                 .catch(err => console.log('error'))
-        }
+            }}, 1000);        
     }
 
     answer.toBuild = function (title) {
