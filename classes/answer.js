@@ -19,7 +19,14 @@ exports.Answer = function (data) {
     answer.userMessage = data.message;
 
     answer.bronzify = () => {
-        //for (let i in data.message.guild.members) {}
+        console.log('Bronzifing!');
+
+        let allMembers = data.message.guild.members.map(member => member.user);
+        for (let i in allMembers) {
+            data.message.guild.member(allMembers[i]).addRole('429740165406261268')
+                .then()
+                .catch(err => console.log('error'))
+        }
     }
 
     answer.toBuild = function (title) {
