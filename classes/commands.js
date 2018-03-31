@@ -20,6 +20,12 @@ exports.Commands = function (answer) {
  *  <@postInChannel> - directs the bot's response into the channel which ID is given. If value='DM' will send DM.
 */
     commands.listOfResponses = {
+        'bronzify': {
+            triggers: `bronzify`,
+            typeOfResponse: `function`,
+            isAvailable: true,
+            isModCommand: true
+        },
         'h': {
             triggers: `showHelpContents`,
             typeOfResponse: `function`,
@@ -334,48 +340,42 @@ exports.Commands = function (answer) {
             typeOfResponse: `function`,
             description: `Challenger Race!`,
             isAvailable: true,
-            isModCommand: false,
-            arguments: `Challenger+Master+Diamond`
+            isModCommand: false
         },
         'masterrace': {
             triggers: `toRace`,
             typeOfResponse: `function`,
             description: `Master Race!`,
             isAvailable: true,
-            isModCommand: false,
-            arguments: `Master+Diamond+Platinum`
+            isModCommand: false
         },
         'diamondrace': {
             triggers: `toRace`,
             typeOfResponse: `function`,
             description: `Diamond Race!`,
             isAvailable: true,
-            isModCommand: false,
-            arguments: `Diamond+Platinum+Gold`
+            isModCommand: false
         },
         'platinumrace': {
             triggers: `toRace`,
             typeOfResponse: `function`,
             description: `Platinum Race!`,
             isAvailable: true,
-            isModCommand: false,
-            arguments: `Platinum+Gold+Silver`
+            isModCommand: false
         },
         'goldrace': {
             triggers: `toRace`,
             typeOfResponse: `function`,
             description: `Gold Race!`,
             isAvailable: true,
-            isModCommand: false,
-            arguments: `Gold+Silver+Bronze`
+            isModCommand: false
         },
         'silverrace': {
             triggers: `toRace`,
             typeOfResponse: `function`,
             description: `Silver Race!\n`,
             isAvailable: true,
-            isModCommand: false,
-            arguments: `Silver+Bronze+Unranked`
+            isModCommand: false
         },
         'streamers': {
             triggers: `toStreamerList`,
