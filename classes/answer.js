@@ -21,17 +21,21 @@ exports.Answer = function (data) {
     answer.bronzify = () => {
         console.log('Bronzifing!');
 
-        let allMembers = data.message.guild.members.map(member => member.user);
-        var i = 0;
-        var l=allMembers.length;
-        var interval = setInterval(() => {
-            data.message.guild.member(allMembers[i]).addRole('429740165406261268')
-                .then()
-                .catch(err => console.log('error'));
-            i++;
-            console.log(`${i}/${l}`)
-            if (i === l) clearInterval(interval);
-        }, 500);
+        const list = data.message.guild.fetchMembers()
+            .then(guild => {
+                var allMembers = guild.members.filter(m => !m.roles.exists('id', '429740165406261268'))
+                    .map(member => member.user);
+                var i = 0;
+                var l=allMembers.length;
+                var interval = setInterval(() => {
+                    data.message.guild.member(allMembers[i]).addRole('429740165406261268')
+                        .then()
+                        .catch(err => console.log('error'));
+                        i++;
+                    console.log(`${i}/${l}`)
+                    if (i === l) clearInterval(interval);
+                }, 500);
+            })
     }
 
     answer.toBuild = function (title) {
