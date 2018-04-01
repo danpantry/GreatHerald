@@ -348,12 +348,12 @@ exports.Answer = function (data) {
     answer.toRace = function (fetchedRanks) {
         var loserList = answer.userMessage.guild.members
             .filter(member => member.roles.exists(role => role.name === 'Hextech Progenitor'))
-            .map(member => `\`\`BRONZE V - 0 LP | \`\`${member.user.username.toUpperCase()}\n`);
+            .map(member => `\`\`BRONZE V -   0 LP | \`\`${member.user.username.toUpperCase()}\n`);
         var final='';
         for (let i in loserList)
             final+=loserList[i];
         post.embed(':trophy: Silver Race!', [
-            ['Participants', `${final}`, false], 
+            ['Participants', `\`\`BRONZE I - 100 LP | \`\`VIKTOR BOT\n${final}`, false], 
             ['Winners', 'None. Abandon your hopes.', false],
             ['\_\_\_', 'You can try to join Silver Race with the ``!silverrace join <IGN>|<server>`` command, but it has no point since we\'re all Bronze deep inside our hearts. Forever.', false]], 
             false);
