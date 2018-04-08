@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+﻿import { romanToArabic, serverToEndPoint } from '.swap.js';
+=======
 ﻿import { romanToArabic, serverToEndPoint } from './swap.js';
+>>>>>>> 58a52744afd4e4adb6f7720c191aa3617373eb28
 
 exports.Race = function (data, post) {
     var race = this;
