@@ -13,9 +13,13 @@
     "isomorphic-fetch": "^2.2.1",
     "request": "^2.81.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
+  },
   "scripts": {
-    "test": "!test"
+    "start": "babel-node viktor.js --presets es2015,stage-2"
   },
   "author": "Arcyvilk",
   "license": "ISC",

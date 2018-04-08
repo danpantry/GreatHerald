@@ -1,4 +1,4 @@
-﻿import { romanToArabic, serverToEndPoint } from '.swap.js';
+﻿import { romanToArabic, serverToEndPoint } from './swap.js';
 
 exports.Race = function (data, post) {
     var race = this;
